@@ -9,7 +9,8 @@ let React = require('react'),
     browserHistory = ReactRouter.browserHistory,
     Layout = require("./pages/Layout/Layout.js"),
     AccountMap = require("./pages/AccountMap/AccountMap.js"),
-    NewAccount = require("./pages/NewAccount/NewAccount.js");
+    NewAccount = require("./pages/NewAccount/NewAccount.js"),
+    NewExtData = require("./pages/NewExtData/NewExtData.js");
 
 
 
@@ -18,6 +19,7 @@ module.exports = (
         <Route path="/" component={Layout}>
             <IndexRoute component={AccountMap} />
             <Route path="new" component={NewAccount} />
+            <Route path="new-ext" component={NewExtData} />
         </Route>
     </Router>
 );

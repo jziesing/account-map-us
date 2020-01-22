@@ -6,9 +6,11 @@
 
 let express = require('express'),
     PublicAddAccount = require('./PubApiRoutes/AddAccount'),
+    PublicAddExtData = require('./PubApiRoutes/AddExtData'),
     PublicFetchAccounts = require('./PubApiRoutes/FetchAccounts'),
     ApiRoutes = express.Router(),
     PubAddAccount = new PublicAddAccount(),
+    PubAddExtData = new PublicAddExtData(),
     PubFetchAccounts = new PublicFetchAccounts();
 
 
@@ -18,6 +20,8 @@ let express = require('express'),
  */
 // add account
 ApiRoutes.post("/new/account/", PubAddAccount.AddAccountPost);
+// add external data
+ApiRoutes.post("/new/extdata/", PubAddExtData.AddExtDataPost);
 
 // get parent accounts
 ApiRoutes.get("/fetch/accounts/", PubFetchAccounts.FetchAccountsGet);

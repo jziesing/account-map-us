@@ -22,6 +22,7 @@ class Layout extends React.Component {
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active"><Link to='/'>Account Map</Link></li>
 						<li><Link to='new'>New Account</Link></li>
+						<li><Link to='new-ext'>New External Data</Link></li>
 					</ul>
 				);
 				break;
@@ -31,6 +32,17 @@ class Layout extends React.Component {
 					<ul class="nav navbar-nav navbar-right">
 						<li><Link to='/'>Account Map</Link></li>
 						<li class="active"><Link to='new'>New Account</Link></li>
+						<li><Link to='new-ext'>New External Data</Link></li>
+					</ul>
+				);
+				break;
+			case 'new-ext':
+			case '/new-ext':
+				return (
+					<ul class="nav navbar-nav navbar-right">
+						<li><Link to='/'>Account Map</Link></li>
+						<li><Link to='new'>New Account</Link></li>
+						<li class="active"><Link to='new-ext'>New External Data</Link></li>
 					</ul>
 				);
 				break;
