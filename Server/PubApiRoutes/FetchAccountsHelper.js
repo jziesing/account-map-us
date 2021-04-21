@@ -37,13 +37,17 @@ class FetchAccountsHelper {
 
     fetchChildAccounts(parentAccountId) {
         return new Promise((resolve, reject) => {
-
+		console.log('helper method hit');
             let currclient = new Client({
                 connectionString: process.env.DATABASE_URL,
                 ssl: true,
             });
+		
+		console.log('BEFORE connecting');
 
             currclient.connect();
+		
+		console.log('AFTER connecting');
 
             currclient.query('SELECT Id, SFID, Name, ShippingStreet, ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry, ShippingLatitude, ShippingLongitude, ParentId FROM Salesforce.Account WHERE ParentId=$1;', [parentAccountId], (err, res) => {
                 if (err){
