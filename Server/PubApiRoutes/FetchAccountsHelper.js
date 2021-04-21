@@ -47,8 +47,13 @@ class FetchAccountsHelper {
 
             currclient.query('SELECT Id, SFID, Name, ShippingStreet, ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry, ShippingLatitude, ShippingLongitude, ParentId FROM Salesforce.Account WHERE ParentId=$1;', [parentAccountId], (err, res) => {
                 if (err){
+			
+		    console.log('ERROR getting accounts');
+		    console.log(err);
                     reject();
                 }
+		    console.log('GOT accounts');
+		    console.log(res);
                 currclient.end();
                 resolve(res.rows);
             });
