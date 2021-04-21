@@ -19,7 +19,9 @@ class FetchAccountsHelper {
 
             let currclient = new Client({
                 connectionString: process.env.DATABASE_URL,
-                ssl: true,
+                ssl: {
+                    rejectUnauthorized: false
+                  }
             });
 
             currclient.connect();
@@ -42,16 +44,16 @@ class FetchAccountsHelper {
                 connectionString: process.env.DATABASE_URL,
                 ssl: true,
             });
-		
+
 		console.log('BEFORE connecting');
 
             currclient.connect();
-		
+
 		console.log('AFTER connecting');
 
             currclient.query('SELECT Id, SFID, Name, ShippingStreet, ShippingCity, ShippingState, ShippingPostalCode, ShippingCountry, ShippingLatitude, ShippingLongitude, ParentId FROM Salesforce.Account WHERE ParentId=$1;', [parentAccountId], (err, res) => {
                 if (err){
-			
+
 		    console.log('ERROR getting accounts');
 		    console.log(err);
                     reject();

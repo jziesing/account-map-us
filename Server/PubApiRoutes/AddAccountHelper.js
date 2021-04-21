@@ -18,7 +18,9 @@ class AddAccountHelper {
 
             let currclient = new Client({
                 connectionString: process.env.DATABASE_URL,
-                ssl: true,
+                ssl: {
+                    rejectUnauthorized: false
+                  }
             });
 
             currclient.connect();
