@@ -34,6 +34,6 @@
     "react-tap-event-plugin": "^2.0.1",
     "react-tooltip": "^3.9.2",
     "superagent": "^3.4.1",
-    "webpack": "^1.14.0"
+    "webpack": "^5.75.0"
   }
 }
